@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 12:44:23 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/07 15:24:59 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/07 17:58:22 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	search(pbook *book, int i)
 	std::cout << "Select a contact by it's index to show complete information" << std::endl;
 	while (!(ip >= 1 && ip <= 9))
 	{
-		std::cin >> input ;
+		getline(std::cin, input) ;
 		ip = std::stoi(input);
 	}
 	show_contact(book, ip - 1);
@@ -71,37 +71,37 @@ void	add_user(pbook **book, int i)
 
 	std::cout << "To create new contact fill this information\n";
 	std::cout << "First Name :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_fname(input);
 	std::cout << "Last Name :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_lname(input);
 	std::cout << "Nickname :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_nname(input);
 	std::cout << "Login :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_login(input);
 	std::cout << "Postal address :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_postaddr(input);
 	std::cout << "Email address :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_mail(input);
 	std::cout << "Phone Number :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_phone(input);
 	std::cout << "Birthday date :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_bday(input);
 	std::cout << "Favorite Meal :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_meal(input);
 	std::cout << "Underwear Color :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_undcolor(input);
 	std::cout << "Darkest Secret :\n";
-	std::cin >> (input);
+	getline(std::cin, input);
 	(*book)[i].set_secret(input);
 	std::cout << "Great! new contact added, you will prompt back to main menu" << std::endl;
 }
@@ -116,7 +116,7 @@ int	main(void)
 	while (1)
 	{
 		std::cout << "$>" ;
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (input == "SEARCH")
 			search(book, i);
 		else if (input == "EXIT")
@@ -128,7 +128,9 @@ int	main(void)
 			else
 				std::cout << "PhoneBook is full, can't add a new contact\n";
 		}
+		else
+			std::cout << "$> Command not recognized" << std::endl;
 	}
-	delete[](book);
+	delete [] book;
 	return (0);
 }
