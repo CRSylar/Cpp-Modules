@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   phonebook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 12:13:04 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/06 15:26:37 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:25:26 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef	PHONEBOOK_CLASS_HPP
+# define PHONEBOOK_CLASS_HPP
 
 #include <iomanip>
 #include <iostream>

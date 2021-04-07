@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 12:33:22 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/06 12:43:53 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:24:45 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "phonebook.class.hpp"
 
 void	pbook::set_fname(std::string str)
 {	_first_name = str;	}

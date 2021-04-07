@@ -6,11 +6,11 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 12:44:23 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/06 16:11:31 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:24:59 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "phonebook.class.hpp"
 
 std::string	ft_truncation(std::string str)
 {
