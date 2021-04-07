@@ -6,13 +6,14 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 12:13:04 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/07 15:25:26 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/07 17:08:39 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef	PHONEBOOK_CLASS_HPP
 # define PHONEBOOK_CLASS_HPP
 
+#include <string>
 #include <iomanip>
 #include <iostream>
 
@@ -31,6 +32,8 @@ private:
 	std::string	_underwear_color;
 	std::string	_darkest_secret;
 public:
+	pbook(void);
+	~pbook(void);
 	void	set_fname(std::string str);
 	void	set_lname(std::string str);
 	void	set_nname(std::string str);

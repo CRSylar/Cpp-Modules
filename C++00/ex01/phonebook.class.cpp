@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 12:33:22 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/07 15:24:45 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/07 17:12:50 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,11 @@ std::string	pbook::get_undcolor(void)
 {	return (_underwear_color);	}
 std::string	pbook::get_secret(void)
 {	return (_darkest_secret);	}
+
+pbook::pbook(void): _first_name(""), _last_name(""), _nickname(""),
+	_login(""),	_postal_address(""), _email_address(""), _phone_number(""),
+	_birthday_date(""),	_favorite_meal(""),	_underwear_color(""), _darkest_secret("")
+{}
+
+pbook::~pbook(void)
+{}
