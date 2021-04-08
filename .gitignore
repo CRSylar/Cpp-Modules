@@ -32,3 +32,4 @@
 *.app
 Account.class.hpp
 test.cpp
+.DS_Store
