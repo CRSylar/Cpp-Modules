@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 14:24:33 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/08 15:11:05 by cromalde         ###   ########.fr       */
+/*   Created: 2021/04/08 15:14:32 by cromalde          #+#    #+#             */
+/*   Updated: 2021/04/08 15:53:28 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef	BRAIN_HPP
-# define BRAIN_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 # include <iostream>
-# include <sstream>
 # include <string>
 
-class Brain
+class Weapon
 {
 private:
-	int	_qi;
-	int	_size;
-
+	std::string	_type;
 public:
-	std::string		identify(void) const;
-	Brain(void);
-	~Brain(void);
+	const std::string&	getType(void);
+	void			setType(std::string str);
+	Weapon(std::string type);
+	~Weapon(void);
 };
 
 #endif

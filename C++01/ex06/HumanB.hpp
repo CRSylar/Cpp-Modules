@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 14:24:33 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/08 15:11:05 by cromalde         ###   ########.fr       */
+/*   Created: 2021/04/08 15:47:53 by cromalde          #+#    #+#             */
+/*   Updated: 2021/04/08 15:50:26 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-#ifndef	BRAIN_HPP
-# define BRAIN_HPP
+# include "Weapon.hpp"
 
-# include <iostream>
-# include <sstream>
-# include <string>
-
-class Brain
+class HumanB
 {
 private:
-	int	_qi;
-	int	_size;
-
+	std::string	_name;
+	Weapon		*_wp;
 public:
-	std::string		identify(void) const;
-	Brain(void);
-	~Brain(void);
+	void	attack(void);
+	void	setWeapon(Weapon &wp);
+	HumanB(std::string name);
+	~HumanB(void);
 };
 
 #endif

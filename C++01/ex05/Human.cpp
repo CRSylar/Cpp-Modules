@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:47:47 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/08 15:02:52 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/08 15:12:12 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ Human::Human(void)
 	std::string	names[8] = {"Danilo", "Crisiano", "Umberto", "Mattia", "Andrea",
 							"Giovo", "Flavio", "Ciro"};
 	_name = names[rand() % 8];
-	_brain;
 }
 
 Human::~Human()

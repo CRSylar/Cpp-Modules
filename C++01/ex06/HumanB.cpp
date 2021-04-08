@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 14:24:33 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/08 15:11:05 by cromalde         ###   ########.fr       */
+/*   Created: 2021/04/08 15:50:12 by cromalde          #+#    #+#             */
+/*   Updated: 2021/04/08 15:52:46 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanB.hpp"
 
-#ifndef	BRAIN_HPP
-# define BRAIN_HPP
-
-# include <iostream>
-# include <sstream>
-# include <string>
-
-class Brain
+void	HumanB::attack(void)
 {
-private:
-	int	_qi;
-	int	_size;
+	std::cout << _name << " attacks with his " << _wp->getType() << std::endl;
+}
 
-public:
-	std::string		identify(void) const;
-	Brain(void);
-	~Brain(void);
-};
+void	HumanB::setWeapon(Weapon &wp)
+{
+	_wp = &wp;
+}
 
-#endif
+HumanB::HumanB(std::string name)
+{
+	_name = name;
+}
+
+HumanB::~HumanB()
+{
+}

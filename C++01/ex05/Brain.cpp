@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:24:00 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/08 15:00:51 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/08 15:11:43 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ std::string	Brain::identify(void) const
 
 Brain::Brain(void)
 {
+	_qi = rand();
+	_size = _qi * rand();
 }
 
 Brain::~Brain()
