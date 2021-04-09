@@ -6,17 +6,19 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 11:58:21 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/09 13:36:31 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/09 14:47:39 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void) : num(0) {}
+Fixed::Fixed(void) : num(0)
+{
+	std::cout << "Default constructor called" << std::endl;
+}
 
 Fixed::Fixed(int num) : num(num)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& src)
@@ -43,7 +45,7 @@ void	Fixed::setRawBits(int const raw)
 
 Fixed&	Fixed::operator=(const Fixed& src)
 {
-	num = src.getRawBits();
 	std::cout << "Assignation operator called" << std::endl;
+	num = src.getRawBits();
 	return *this ;
 }
