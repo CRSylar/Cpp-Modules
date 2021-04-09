@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 11:58:21 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/09 18:24:28 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/09 18:40:21 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,18 +183,18 @@ Fixed&		max(Fixed& x, Fixed& y)
 
 const Fixed&	min(const Fixed& x, const Fixed& y)
 {
-	/* if (x < y)
+	if (x.getRawBits() < y.getRawBits())
 		return x;
 	else
-		return y; */
+		return y;
 }
 
 const Fixed&	max(const Fixed& x, const Fixed& y)
 {
-	/* if (x > y)
+	if (x.getRawBits() > y.getRawBits())
 		return x;
 	else
-		return y; */
+		return y;
 }
 
 std::ostream&	operator<<(std::ostream& stream, const Fixed& src)
