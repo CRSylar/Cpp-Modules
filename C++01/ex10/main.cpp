@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 09:43:18 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/09 10:15:59 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/09 13:17:33 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,9 @@
 #include <string>
 #include <fstream>
 
-void	ft_stdin(std::string str)
+void	ft_stdin(void)
 {
-	std::string	end = "\0";
-	do
-	{
-		getline(std::cin, str);
-		std::cout << str << std::endl;
-	}while (str != end);
+	std::cout << std::cin.rdbuf();
 	return ;
 }
 
@@ -33,7 +28,7 @@ int		main(int ac, char **av)
 
 	if (ac == 1)
 	{
-		ft_stdin(str);
+		ft_stdin();
 		return (0);
 	}
 	for (i = 1; i < ac; i++)
