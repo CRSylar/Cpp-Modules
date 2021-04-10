@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 11:57:17 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/09 18:24:08 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/10 09:46:01 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ class Fixed
 		bool	operator!=(const Fixed& right);
 
 	//	Arithmetic operators
-		Fixed&	operator+(const Fixed& right);
-		Fixed&	operator*(const Fixed& right);
-		Fixed&	operator-(const Fixed& right);
-		Fixed&	operator/(const Fixed& right);
+		Fixed	operator+(const Fixed& right);
+		Fixed	operator*(const Fixed& right);
+		Fixed	operator-(const Fixed& right);
+		Fixed	operator/(const Fixed& right);
 
 
 	//	Increment operators
@@ -55,16 +55,14 @@ class Fixed
 		void	setRawBits(int const raw);
 		float	toFloat(void) const;
 		int		toInt(void) const;
-
+	// Non Member funct
+		static const Fixed&			min(const Fixed& x, const Fixed& y);
+		static const Fixed&			max(const Fixed& x, const Fixed& y);
 	private:
 		int					num;
 		static const int	frac = 8;
 };
 
 std::ostream&	operator<<(std::ostream& stream, const Fixed& src);
-Fixed&			min(Fixed& x, Fixed& y);
-Fixed&			max(Fixed& x, Fixed& y);
-const Fixed&	min(const Fixed& x, const Fixed& y);
-const Fixed&	max(const Fixed& x, const Fixed& y);
 
 #endif

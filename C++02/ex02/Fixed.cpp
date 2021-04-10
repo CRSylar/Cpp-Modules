@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 11:58:21 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/09 18:40:21 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/10 10:03:01 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ bool	Fixed::operator!=(const Fixed& right)
 }
 /*==========================================================*/
 	//Arithmetic operators
-Fixed&	Fixed::operator+(const Fixed& right)
+Fixed	Fixed::operator+(const Fixed& right)
 {
 	Fixed res;
 
@@ -112,7 +112,7 @@ Fixed&	Fixed::operator+(const Fixed& right)
 	return res;
 }
 
-Fixed&	Fixed::operator-(const Fixed& right)
+Fixed	Fixed::operator-(const Fixed& right)
 {
 	Fixed res;
 
@@ -120,18 +120,20 @@ Fixed&	Fixed::operator-(const Fixed& right)
 	return res;
 }
 
-Fixed&	Fixed::operator*(const Fixed& right)
+Fixed	Fixed::operator*(const Fixed& right)
 {
 	Fixed res;
 
-	res.setRawBits(num * right.getRawBits());
+	res.setRawBits((num * right.getRawBits() / (1 << frac)));
+	return res;
 }
 
-Fixed&	Fixed::operator/(const Fixed& right)
+Fixed	Fixed::operator/(const Fixed& right)
 {
 	Fixed res;
 
-	res.setRawBits(num / right.getRawBits());
+	res.setRawBits((num / right.getRawBits() * ( 1 << frac)));
+	return res;
 }
 /*==========================================================*/
 	//	Increment operators
@@ -181,7 +183,7 @@ Fixed&		max(Fixed& x, Fixed& y)
 
 }
 
-const Fixed&	min(const Fixed& x, const Fixed& y)
+const Fixed&	Fixed::min(const Fixed& x, const Fixed& y)
 {
 	if (x.getRawBits() < y.getRawBits())
 		return x;
@@ -189,7 +191,7 @@ const Fixed&	min(const Fixed& x, const Fixed& y)
 		return y;
 }
 
-const Fixed&	max(const Fixed& x, const Fixed& y)
+const Fixed&	Fixed::max(const Fixed& x, const Fixed& y)
 {
 	if (x.getRawBits() > y.getRawBits())
 		return x;
