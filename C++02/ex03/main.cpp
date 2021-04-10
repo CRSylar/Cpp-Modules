@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 10:26:01 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/10 13:36:03 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/10 15:57:57 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,16 @@ std::string	sum(Fixed left, Fixed right)
 	return (ss.str());
 }
 
-void	solve_subexpr(std::string& subexpr)
+std::string	find_right(std::string expr, size_t op)
 {
-	std::string	res;
-	size_t		op;
+	std::string ret;
+	size_t		sup;
 
-	op = subexpr.find_first_not_of(" 0123456789.");
-	if (op == std::string::npos)
-		return ;
-	if (subexpr.at(op) == '+')
-		res = sum(std::stof(subexpr.substr(0, op - 1)), std::stof(subexpr.substr(op + 1, std::string::npos)));
-	else if (subexpr.at(op) == '-')
-		res = sub(std::stof(subexpr.substr(0, op - 1)), std::stof(subexpr.substr(op + 1, std::string::npos)));
-	else if (subexpr.at(op) == '*')
-		res = mult(std::stof(subexpr.substr(0, op - 1)), std::stof(subexpr.substr(op + 1, std::string::npos)));
-	else if (subexpr.at(op) == '/')
-		res = divid(std::stof(subexpr.substr(0, op - 1)), std::stof(subexpr.substr(op + 1, std::string::npos)));
-	subexpr.swap(res);
+	sup = expr.find("-+*/", op + 1);
+	if (sup == std::string::npos)
+		sup = expr.length();
+	ret = expr.substr(op + 1, sup - op);
+	return (ret);
 }
 
 std::string	find_left(std::string expr, size_t op)
@@ -86,35 +79,54 @@ std::string	find_left(std::string expr, size_t op)
 	std::string ret;
 	size_t		inf;
 
-	inf = expr.rfind("-+", op);
+	inf = expr.find_last_of("-+", op - 1);
 	if (inf == std::string::npos)
-		inf = 0;
-	ret = expr.substr(inf, op - 1);
+		inf = -1;
+	ret = expr.substr(inf + 1, op - 1);
 	return (ret);
 }
 
-void	priority_solve(std::string	expr)
+void	priority_solve(std::string&	expr)
 {
 	std::string	res;
 	std::string	left;
 	std::string	right;
 	size_t	op = 0;
 	size_t	inf;
+	size_t	sup;
 
 	while ((op = expr.find_first_not_of(" 0123456789.+-")) != std::string::npos)
 	{
-		right = expr.substr(op + 1, expr.find_first_of("-*/+", op) - 1);
+		right = find_right(expr, op);
 		left = find_left(expr, op);
 		if (expr.at(op) == '*')
 			res = mult(std::stof(left), std::stof(right));
 		else if (expr.at(op) == '/')
 			res = divid(std::stof(left), std::stof(right));
-		inf = expr.rfind("-+", op);
+		inf = expr.find_last_of("-+", op);
 		if (inf == std::string::npos)
-			inf = 0;
-		expr.replace(inf, , res);
+			inf = -1;
+		sup = expr.find_first_of("-+*/", op + 1);
+		if (sup == std::string::npos)
+			sup = expr.length();
+		expr.replace(inf + 1, sup - inf - 1, res);
 	}
-	std::cout << "Expression -> " << expr << std::endl;
+	while ((op = expr.find_first_not_of(" 0123456789.")) != std::string::npos)
+	{
+		right = find_right(expr, op);
+		left = find_left(expr, op);
+		if (expr.at(op) == '+')
+			res = sum(std::stof(left), std::stof(right));
+		else if (expr.at(op) == '-')
+			res = sub(std::stof(left), std::stof(right));
+		inf = expr.find_last_of("-+", op - 1);
+		if (inf == std::string::npos)
+			inf = -1;
+		sup = expr.find_first_of("-+*/", op + 1);
+		if (sup == std::string::npos)
+			sup = expr.length();
+		expr.replace(inf + 1, sup - inf, res);
+	}
 }
 
 bool	my_lexer(std::string expr)
@@ -131,15 +143,15 @@ bool	my_lexer(std::string expr)
 			token = true;
 		if (token)
 		{
-			close = expr.find_first_of(")");
+			close = expr.find_first_of(")", open);
 			if (close == std::string::npos)
 			{
 				std::cout << "Error, some open bracket doesn't match with a closing one" << std::endl;
 				return (true);
 			}
-			subexpr = expr.substr(open + 1, close - open);
-			solve_subexpr(subexpr);
-			expr.replace(open, close + 1, subexpr);
+			subexpr = expr.substr(open + 1, close - open - 1);
+			priority_solve(subexpr);
+			expr.replace(open, close - open + 1, subexpr);
 			token = false;
 		}
 	}

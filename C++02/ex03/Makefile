@@ -6,7 +6,7 @@
 #    By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/10 10:08:17 by cromalde          #+#    #+#              #
-#    Updated: 2021/04/10 11:06:00 by cromalde         ###   ########.fr        #
+#    Updated: 2021/04/10 14:47:57 by cromalde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC		=	Fixed.cpp \
 			main.cpp
 OBJ		=	$(SRC:.cpp=.o)
 CC		=	clang++
-CFL		=	-Wall -Wextra -Werror
+CFL		=	-Wall -Wextra -Werror -g
 RM		=	rm -rf
 
 .PHONY:	all clean fclean re
