@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 16:59:14 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 12:47:57 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/11 12:59:53 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ ScavTrap::ScavTrap(const ScavTrap& src)
 	Ranged_attack_damage = src.get_rad();
 	Armor_damage_reduction = src.get_adr();
 	Name = src.get_name() + "_cp";
-	std::cout << "Copy Constructor called, now there's two " << Name << " !" << std::endl;
+	std::cout << "Copy Constructor called, now there's <" << src.get_name() << "> and <";
+	std::cout << Name << "> !" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
@@ -217,7 +218,7 @@ void	ScavTrap::challengeNewcomer(std::string const & target)
 	if (nrg >= 25)
 	{
 		set_ep(nrg - 25);
-		std::cout << "SC4V_TP <" << get_name() << "> challenge : <";
+		std::cout << "SC4V_TP <" << get_name() << "> challenge <";
 		std::cout << target << "> to <" << chllg[rand() % 5] << "> !" << std::endl;
 	}
 	else

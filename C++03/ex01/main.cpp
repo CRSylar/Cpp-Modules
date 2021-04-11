@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 16:59:35 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 12:52:56 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/11 13:01:55 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(void)
 	FragTrap	sw_name("Franco");
 
 	ScavTrap	std;
-	ScavTrap	one("Mr. One");
+	ScavTrap	one("Mr.One");
 	ScavTrap	one_cp(one);
 
 	def.meleeAttack(sw_name.get_name());
@@ -43,9 +43,10 @@ int		main(void)
 	one_cp.rangedAttack(def.get_name());
 
 	one.challengeNewcomer(mario.get_name());
-	one.takeDamage(80);
+	one.takeDamage(98);
 	one.beRepaired(15);
 	mario.meleeAttack(one.get_name());
+	one.takeDamage(mario.get_mad());
 
 	one_cp.challengeNewcomer(sw_name.get_name());
 }
