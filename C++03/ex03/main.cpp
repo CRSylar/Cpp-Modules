@@ -6,12 +6,12 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 16:59:35 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 13:01:55 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/11 20:08:22 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
+#include "NinjaTrap.hpp"
 
 int		main(void)
 {
@@ -24,6 +24,9 @@ int		main(void)
 	ScavTrap	std;
 	ScavTrap	one("Mr.One");
 	ScavTrap	one_cp(one);
+
+	NinjaTrap	nin;
+	NinjaTrap	shi("Hattori Hanzo");
 
 	def.meleeAttack(sw_name.get_name());
 	sw_name.takeDamage(def.get_mad());
@@ -49,4 +52,8 @@ int		main(void)
 	one.takeDamage(mario.get_mad());
 
 	one_cp.challengeNewcomer(sw_name.get_name());
+
+	shi.ninjaShoebox(one);
+	shi.ninjaShoebox(mario);
+	shi.ninjaShoebox(nin);
 }
