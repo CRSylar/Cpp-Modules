@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 17:27:09 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 17:46:04 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/11 17:46:43 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 	set_ep(120);
 	set_mxep();
 	set_dmg(60, 5, 0);
-	std::cout << "There's a new Ninja called <" << get_name() "> around, but maibe you can't see it" << std::endl;
+	std::cout << "There's a new Ninja called <" << get_name() << "> around, but maibe you can't see it" << std::endl;
 }
 
 NinjaTrap::NinjaTrap(const NinjaTrap& src) : ClapTrap(src)
