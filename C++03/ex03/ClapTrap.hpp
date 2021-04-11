@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 15:36:49 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 17:22:51 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/11 17:34:22 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap
 
 			void	set_name(std::string name);
 			void	set_hp(int hp);
-			void	set_mxhp(void);
+			void	set_mxhp(int mxp);
 			void	set_lvl(void);
 			void	set_ep(int ep);
 			void	set_mxep(int mxep);

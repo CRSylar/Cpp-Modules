@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 15:38:12 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 17:24:53 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/11 17:34:33 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap(void)
 {
 	srand(time(0));
 	set_hp(100);
-	set_mxhp();
+	set_mxhp(100);
 	set_lvl();
 	Name = "Cl4p_Tp";
 	std::cout << "Building a new CL4P_TP" << std::endl;
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap(std::string name)
 {
 	srand(time(0));
 	set_hp(100);
-	set_mxhp();
+	set_mxhp(100);
 	set_lvl();
 	Name = name;
 	std::cout << "Building a new CL4P_TP using Named Constructor" << std::endl;
@@ -64,9 +64,9 @@ void	ClapTrap::set_hp(int hp)
 	Hit_points = hp;
 }
 
-void	ClapTrap::set_mxhp(void)
+void	ClapTrap::set_mxhp(int mhp)
 {
-	Max_hit_points = 100;
+	Max_hit_points = mhp;
 }
 
 void	ClapTrap::set_lvl(void)

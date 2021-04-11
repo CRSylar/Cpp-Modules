@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 16:59:14 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 17:22:43 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/11 17:45:11 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	FragTrap::set_dmg(int mad, int rad, int adr)
 FragTrap&	FragTrap::operator=(const FragTrap& src)
 {
 	ClapTrap::set_hp(src.get_hp());
-	ClapTrap::set_mxhp();
+	ClapTrap::set_mxhp(100);
 	ClapTrap::set_ep(src.get_ep());
 	ClapTrap::set_mxep(src.get_mxep());
 	ClapTrap::set_lvl();
