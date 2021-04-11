@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 16:52:15 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 12:31:00 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/11 12:15:36 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ class FragTrap
 
 			FragTrap& operator=(const FragTrap& src);
 
+			void	set_hp(int hp);
+			void	set_mxhp(void);
+			void	set_ep(int ep);
+			void	set_mxep(void);
+			void	set_lvl(void);
+			void	set_dmg(int mad, int rad, int adr);
 
 			unsigned int		get_hp(void) const;
 			unsigned int		get_mxhp(void) const;
@@ -52,13 +58,6 @@ class FragTrap
 			int		Ranged_attack_damage;
 			int		Armor_damage_reduction;
 			std::string	Name;
-
-			void	set_hp(int hp);
-			void	set_mxhp(void);
-			void	set_ep(int ep);
-			void	set_mxep(void);
-			void	set_lvl(void);
-			void	set_dmg(int mad, int rad, int adr);
 };
 
 #endif

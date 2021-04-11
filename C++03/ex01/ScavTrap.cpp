@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 16:59:14 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 12:31:04 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/11 12:47:57 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 	//	Constructors & Destructor
-FragTrap::FragTrap(void)
+ScavTrap::ScavTrap(void)
 {
 	srand(time(0));
 	set_hp(100);
 	set_mxhp();
-	set_ep(100);
+	set_ep(50);
 	set_mxep();
 	set_lvl();
-	set_dmg(30, 20, 5);
-	Name = "Fr4g_Tr4p";
-	std::cout << "Default Constructor called, Welcome Fr4g_Tr4p !" << std::endl;
+	set_dmg(20, 15, 3);
+	Name = "SC4V_Tr4p";
+	std::cout << "Default Constructor called, now There's a new SC4V_Tr4p !" << std::endl;
 }
 
-FragTrap::FragTrap(std::string	name)
+ScavTrap::ScavTrap(std::string	name)
 {
 	srand(time(0));
 	set_hp(100);
 	set_mxhp();
-	set_ep(100);
+	set_ep(50);
 	set_mxep();
 	set_lvl();
-	set_dmg(30, 20, 5);
+	set_dmg(20, 15, 3);
 	Name = name;
-	std::cout << "Constructor called, Welcome " << Name << " !" << std::endl;
+	std::cout << "Constructor called, new SC4V named >" << Name << "< created !" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& src)
+ScavTrap::ScavTrap(const ScavTrap& src)
 {
 	srand(time(0));
 	Hit_points = src.get_hp();
@@ -54,92 +54,92 @@ FragTrap::FragTrap(const FragTrap& src)
 	std::cout << "Copy Constructor called, now there's two " << Name << " !" << std::endl;
 }
 
-FragTrap::~FragTrap(void)
+ScavTrap::~ScavTrap(void)
 {
-	std::cout << "Destructor called on " << Name << std::endl;
+	std::cout << "Dismantling -> " << Name << std::endl;
 }
 
 /*=======================================================*/
 		// Setter & Getter
-void	FragTrap::set_hp(int hp)
+void	ScavTrap::set_hp(int hp)
 {
 	Hit_points = hp;
 }
 
-void	FragTrap::set_mxhp(void)
+void	ScavTrap::set_mxhp(void)
 {
 	Max_hit_points = 100;
 }
 
-void	FragTrap::set_ep(int ep)
+void	ScavTrap::set_ep(int ep)
 {
 	Energy_points = ep;
 }
 
-void	FragTrap::set_mxep(void)
+void	ScavTrap::set_mxep(void)
 {
-	Max_energy_points = 100;
+	Max_energy_points = 50;
 }
 
-void	FragTrap::set_lvl(void)
+void	ScavTrap::set_lvl(void)
 {
 	Level = 1;
 }
 
-void	FragTrap::set_dmg(int mad, int rad, int adr)
+void	ScavTrap::set_dmg(int mad, int rad, int adr)
 {
 	Melee_attack_damage  = mad;
 	Ranged_attack_damage = rad;
 	Armor_damage_reduction = adr;
 }
 
-unsigned int		FragTrap::get_hp(void) const
+unsigned int		ScavTrap::get_hp(void) const
 {
 	return (Hit_points);
 }
 
-unsigned int		FragTrap::get_mxhp(void) const
+unsigned int		ScavTrap::get_mxhp(void) const
 {
 	return (Max_hit_points);
 }
 
-unsigned int		FragTrap::get_ep(void) const
+unsigned int		ScavTrap::get_ep(void) const
 {
 	return (Energy_points);
 }
 
-unsigned int		FragTrap::get_mxep(void) const
+unsigned int		ScavTrap::get_mxep(void) const
 {
 	return (Max_energy_points);
 }
 
-unsigned int		FragTrap::get_lvl(void) const
+unsigned int		ScavTrap::get_lvl(void) const
 {
 	return (Level);
 }
 
-unsigned int		FragTrap::get_mad(void) const
+unsigned int		ScavTrap::get_mad(void) const
 {
 	return (Melee_attack_damage);
 }
 
-unsigned int		FragTrap::get_rad(void) const
+unsigned int		ScavTrap::get_rad(void) const
 {
 	return (Ranged_attack_damage);
 }
 
-unsigned int		FragTrap::get_adr(void) const
+unsigned int		ScavTrap::get_adr(void) const
 {
 	return (Armor_damage_reduction);
 }
 
-std::string		FragTrap::get_name(void) const
+std::string		ScavTrap::get_name(void) const
 {
 	return (Name);
 }
 /*=======================================================*/
 	// Operator Overload
-FragTrap&	FragTrap::operator=(const FragTrap& src)
+ScavTrap&	ScavTrap::operator=(const ScavTrap& src)
 {
 	Hit_points = src.get_hp();
 	Max_hit_points = src.get_mxhp();
@@ -154,19 +154,19 @@ FragTrap&	FragTrap::operator=(const FragTrap& src)
 }
 /*=======================================================*/
 	// Member Funcions
-void	FragTrap::rangedAttack(std::string const & target)
+void	ScavTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "FR4G-TP <" << get_name() << "> attacks <" << target;
-	std::cout << "> at range, causing <" << get_rad() << "> damages point !" << std::endl;
+	std::cout << "SC4V-TP <" << get_name() << "> firing to <" << target;
+	std::cout << "> with the rocket launcher, causing <" << get_rad() << "> damages point !" << std::endl;
 }
 
-void	FragTrap::meleeAttack(std::string const & target)
+void	ScavTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "FR4G-TP <" << get_name() << "> charge in melee <" << target;
+	std::cout << "SC4V-TP <" << get_name() << "> draw a sword hit <" << target;
 	std::cout << "> , causing <" << get_mad() << "> damages point !" << std::endl;
 }
 
-void	FragTrap::takeDamage(unsigned int amount)
+void	ScavTrap::takeDamage(unsigned int amount)
 {
 	int hp;
 
@@ -175,20 +175,20 @@ void	FragTrap::takeDamage(unsigned int amount)
 	if (hp > 0)
 	{
 		set_hp(hp);
-		std::cout << "FR4G-TP <" << get_name() << "> is taking damage";
-		std::cout << ", thaks to armor get <" << amount - get_adr() << "> damages !" << std::endl;
+		std::cout << "SC4V-TP <" << get_name() << "> is taking damage";
+		std::cout << ", it's armor reduce the damage to <" << amount - get_adr() << "> damages !" << std::endl;
 	}
 	else
 	{
 		set_hp(0);
-		std::cout << "FR4G-TP <" << get_name() << "> is taking damage";
+		std::cout << "SC4V-TP <" << get_name() << "> is taking damage";
 		std::cout << " <" << get_mxhp() << "> damages !\n";
 		std::cout << "<" << get_name() << ">'s hp is 0!" << std::endl;
-		std::cout << get_name() << ":.....*is gone now*..." << std::endl;
+		std::cout << get_name() << ":.....*disassembles in the background*..." << std::endl;
 	}
 }
 
-void	FragTrap::beRepaired(unsigned int amount)
+void	ScavTrap::beRepaired(unsigned int amount)
 {
 	unsigned int hp;
 
@@ -196,29 +196,30 @@ void	FragTrap::beRepaired(unsigned int amount)
 	if ((hp + amount ) <= get_mxhp())
 	{
 		set_hp(hp + amount);
-		std::cout << "Repairing <" << get_name() << ">...";
+		std::cout << "<" << get_name() << "> is Repairing itself !.";
 		std::cout << ".. <" << amount << "> hp gained !" << std::endl;
 	}
 	else
 	{
 		set_hp(get_mxhp());
-		std::cout << "Repairing <" << get_name() << ">...";
+		std::cout << "<" << get_name() << "> is Repairing...";
 		std::cout << "can't repair more than.. <" << get_mxhp() - hp << "> full Hp now !" << std::endl;
 	}
 }
 
-void	FragTrap::vaulthunter_dot_exe(std::string const & target)
+void	ScavTrap::challengeNewcomer(std::string const & target)
 {
-	std::string	atks[5] = {"Flirting", "Ticking", "Funny Face", "Pinching", "Tricking"};
+	std::string	chllg[5] = {"Burp race", "Death Challenge", "The first who laugh Lose",
+										"Gunfighter duel", "Squat Challenge"};
 	int		nrg;
 
 	nrg = get_ep();
 	if (nrg >= 25)
 	{
 		set_ep(nrg - 25);
-		std::cout << "FR4G_TP <" << get_name() << "> uses : <";
-		std::cout << atks[rand() % 5] << "> on <" << target << "> !" << std::endl;
+		std::cout << "SC4V_TP <" << get_name() << "> challenge : <";
+		std::cout << target << "> to <" << chllg[rand() % 5] << "> !" << std::endl;
 	}
 	else
-		std::cout << "FR4G_TP <" << get_name() << "> is out of energy!" << std::endl;
+		std::cout << "SC4V_TP <" << get_name() << "> is out of energy!" << std::endl;
 }

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 16:52:15 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/11 12:31:00 by cromalde         ###   ########.fr       */
+/*   Created: 2021/04/11 12:24:37 by cromalde          #+#    #+#             */
+/*   Updated: 2021/04/11 12:43:19 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef	SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
 # include <string>
 
-class FragTrap
+class ScavTrap
 {
 	public:
-			FragTrap(void);
-			FragTrap(std::string name);
-			FragTrap(const FragTrap& src);
-			~FragTrap(void);
+			ScavTrap(void);
+			ScavTrap(std::string name);
+			ScavTrap(const ScavTrap& src);
+			~ScavTrap(void);
 
-			FragTrap& operator=(const FragTrap& src);
-
+			ScavTrap& operator=(const ScavTrap& src);
 
 			unsigned int		get_hp(void) const;
 			unsigned int		get_mxhp(void) const;
@@ -41,7 +40,7 @@ class FragTrap
 			void	meleeAttack(std::string const & target);
 			void	takeDamage(unsigned int amount);
 			void	beRepaired(unsigned int amount);
-			void	vaulthunter_dot_exe(std::string const & target);
+			void	challengeNewcomer(std::string const & target);
 	private:
 			int		Hit_points;
 			int		Max_hit_points;
