@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 16:27:13 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 16:32:56 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 18:15:41 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 	//	Constructor & Destructor
 PowerFist::PowerFist(void) :
-	AWeapon("*Power Fist*", 50, 8)
+	AWeapon("*Power Fist*", 8, 50)
 {}
 
 PowerFist::PowerFist(const PowerFist& src) :

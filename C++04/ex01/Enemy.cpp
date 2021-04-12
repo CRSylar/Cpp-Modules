@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 16:54:37 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 17:45:14 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 18:11:12 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 	//	Constructors & Destructor
 Enemy::Enemy(void) :
-	hp(0), type("No_type")	{}
+	type("No_type"), hp(0)	{}
 
 Enemy::Enemy(int _hp, std::string const & _type) :
-	hp(_hp), type("_type")	{}
+	type(_type), hp(_hp)	{}
 
 Enemy::Enemy(const Enemy& src)
 {

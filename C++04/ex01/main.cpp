@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:25 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 18:06:10 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 18:07:40 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,9 @@ int		main(void)
 	me->attack(b);
 	std::cout << *me;
 
+	delete b;
+	delete pr;
+	delete pf;
+	delete me;
 	return (0);
 }

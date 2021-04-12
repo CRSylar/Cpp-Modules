@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:47:29 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 17:59:04 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 18:15:06 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,19 @@ Character&	Character::operator=(const Character& src)
 
 std::ostream&	operator<<(std::ostream& stream, const Character& src)
 {
-	std::cout << src.getName() << " has " << src.getAp() << " and " << src.getWpName() << std::endl;
+	std::cout << src.getName() << " has " << src.getAp() << " AP and " << src.getWpName() << std::endl;
+	return stream;
 }
 /*===============================================*/
 	// Getter
+std::string const Character::getName() const
+{
+	return this->name;
+}
+
 int		Character::getAp(void) const
 {
-	return Ap;
+	return this->Ap;
 }
 
 std::string	 Character::getWpName(void) const
