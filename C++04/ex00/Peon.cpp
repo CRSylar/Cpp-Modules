@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/12 13:14:21 by cromalde          #+#    #+#             */
+/*   Updated: 2021/04/12 13:24:47 by cromalde         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Peon.hpp"
+
+	//	Constructor & Destructor
+Peon::Peon(void) : Victim()
+{
+	std::cout << "Zog zog" << std::endl;
+}
+
+Peon::Peon(std::string _name) : Victim(_name)
+{
+	std::cout << "Zog zog" << std::endl;
+}
+
+Peon::Peon(const Peon& src) : Victim(src)
+{
+	std::cout << "Zog zog" << std::endl;
+}
+
+Peon::~Peon(void)
+{
+	std::cout << "Bleuark..." << std::endl;
+}
+/*================================================================*/
+	// Operator Overload
+Peon&	Peon::operator=(const Peon& src)
+{
+	Victim::operator=(src);
+}
+/*================================================================*/
+	//	Member Funcion
+void	Peon::polymorph(void) const
+{
+	std::cout << this->get_name() << "has been turned into a pink pony!" << std::endl;
+	Peon::~Peon();
+}
