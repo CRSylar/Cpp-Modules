@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 12:51:01 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 13:08:42 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 14:58:44 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Victim&		Victim::operator=(const Victim& src)
 
 std::ostream&	operator<<(std::ostream& stream, const Victim& src)
 {
-	std::cout << "I am " << src.get_name() << ", and i like ponies!" << std::endl;
+	std::cout << "I'm " << src.get_name() << ", and i like otters!" << std::endl;
 	return stream;
 }
 /*================================================================*/
@@ -54,7 +54,7 @@ std::string		Victim::get_name(void)	const
 }
 /*================================================================*/
 	//	Member Funcion
-void	Victim::polymorph(void) const
+void	Victim::bepolymorphed(void) const
 {
-	std::cout << this->get_name() << "has been turned into a cute litte sheep!" << std::endl;
+	std::cout << this->get_name() << " has been turned into a cute litte sheep!" << std::endl;
 }

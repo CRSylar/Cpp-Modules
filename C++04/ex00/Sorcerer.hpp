@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 12:08:22 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 12:54:48 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 15:05:38 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# include "Victim.hpp"
+# include "Peon.hpp"
 
 class Sorcerer
 {
@@ -30,6 +30,7 @@ class Sorcerer
 			std::string		get_name(void) const;
 			std::string		get_title(void) const;
 			void	polymorph(Victim const & src) const;
+			void	polymorph(Peon const & src) const;
 	private:
 			std::string	name;
 			std::string	title;

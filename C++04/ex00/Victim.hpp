@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 12:44:02 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 13:08:38 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 14:58:56 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ class Victim
 			Victim&		operator=(const Victim& src);
 
 			std::string		get_name(void)	const;
-			void	Victim::polymorph(void) const;
-
+			void	bepolymorphed(void) const;
 	private:
 			std::string	name;
 };
+
+std::ostream&	operator<<(std::ostream& stream, const Victim& src);
 
 #endif

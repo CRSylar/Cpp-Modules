@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 13:09:33 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 13:14:19 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 14:59:12 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Peon : public Victim
 
 			Peon&	operator=(const Peon& src);
 
-			void	Peon::polymorph(void) const;
+			void	bepolymorphed(void) const;
 	private:
 };
 

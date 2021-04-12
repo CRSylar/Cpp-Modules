@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 13:14:21 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 13:24:47 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 14:59:20 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ Peon::~Peon(void)
 Peon&	Peon::operator=(const Peon& src)
 {
 	Victim::operator=(src);
+	return *this;
 }
 /*================================================================*/
 	//	Member Funcion
-void	Peon::polymorph(void) const
+void	Peon::bepolymorphed(void) const
 {
 	std::cout << this->get_name() << "has been turned into a pink pony!" << std::endl;
-	Peon::~Peon();
 }

@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 12:25:57 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 13:08:51 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 15:05:44 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,12 @@ std::string		Sorcerer::get_title(void) const
 	//	Member Funcion
 void	Sorcerer::polymorph(Victim const & src) const
 {
-	src.Victim::polymorph();
+	src.bepolymorphed();
+}
+
+void	Sorcerer::polymorph(Peon const & src) const
+{
+	src.bepolymorphed();
 }
 /*================================================================*/
 
