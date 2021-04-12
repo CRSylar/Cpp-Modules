@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:25 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 18:07:40 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 18:31:31 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		main(void)
 	std::cout << *me;
 
 	Enemy *b = new RadScorpion();
+	Enemy *a = new SuperMutant();
 
 	AWeapon *pr = new PlasmaRifle();
 	AWeapon *pf = new PowerFist();
@@ -36,9 +37,21 @@ int		main(void)
 	me->attack(b);
 	std::cout << *me;
 
+	me->recoverAP();
+	me->recoverAP();
+	me->recoverAP();
+	me->recoverAP();
+
+	me->attack(a);
+	me->equip(pf);
+	me->attack(a);
+	me->attack(a);
+
+ 	delete a;
 	delete b;
 	delete pr;
 	delete pf;
 	delete me;
+
 	return (0);
 }

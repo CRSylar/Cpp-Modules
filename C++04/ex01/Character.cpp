@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:47:29 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 18:15:06 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 18:20:10 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,6 @@ void	Character::attack(Enemy *_enemy)
 		ptr->attack();
 		this->Ap -= ptr->getAPCost();
 		_enemy->takeDamage(ptr->getDamage());
-		if (_enemy->getHP() <= 0)
-			_enemy->~Enemy();
 	}
 	else
 		std::cout << "* " << this->getName() << " * had not enought AP to attack with" \

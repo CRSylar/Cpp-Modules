@@ -24,6 +24,7 @@ class RadScorpion : public Enemy
 
 			RadScorpion&	operator=(const RadScorpion& src);
 
+			void takeDamage(int _n);
 	private:
 };
 

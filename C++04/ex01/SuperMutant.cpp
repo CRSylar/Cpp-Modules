@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 16:54:37 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/12 17:46:23 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/12 18:27:04 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ SuperMutant::SuperMutant(const SuperMutant& src)
 }
 
 SuperMutant::~SuperMutant(void)
-{
-		std::cout << "Aaargh..." << std::endl;
-}
+{}
 
 /*===============================================*/
 	// Operator Overload
@@ -46,5 +44,8 @@ void	SuperMutant::takeDamage(int _n)
 	if (_n - 3 <= 0)
 		return;
 	if ((this->hp -= (_n - 3)) <= 0)
+	{
 		this->hp = 0;
+		std::cout << "Aaargh..." << std::endl;
+	}
 }
