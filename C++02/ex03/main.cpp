@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 10:26:01 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/10 15:57:57 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/13 12:11:14 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ std::string	find_right(std::string expr, size_t op)
 	std::string ret;
 	size_t		sup;
 
-	sup = expr.find("-+*/", op + 1);
+	sup = expr.find_first_of("-+*/", op + 1);
 	if (sup == std::string::npos)
 		sup = expr.length();
-	ret = expr.substr(op + 1, sup - op);
+	ret = expr.substr(op + 1, sup - op - 1);
 	return (ret);
 }
 
@@ -79,10 +79,10 @@ std::string	find_left(std::string expr, size_t op)
 	std::string ret;
 	size_t		inf;
 
-	inf = expr.find_last_of("-+", op - 1);
+	inf = expr.find_last_of("-+*/", op - 1);
 	if (inf == std::string::npos)
-		inf = -1;
-	ret = expr.substr(inf + 1, op - 1);
+		inf = 0;
+	ret = expr.substr((inf == 0) ? inf : inf + 1, op - inf - 1);
 	return (ret);
 }
 
@@ -103,13 +103,15 @@ void	priority_solve(std::string&	expr)
 			res = mult(std::stof(left), std::stof(right));
 		else if (expr.at(op) == '/')
 			res = divid(std::stof(left), std::stof(right));
-		inf = expr.find_last_of("-+", op);
+		inf = expr.find_last_of("-+*/", op - 1);
 		if (inf == std::string::npos)
-			inf = -1;
+			inf = 0;
 		sup = expr.find_first_of("-+*/", op + 1);
 		if (sup == std::string::npos)
 			sup = expr.length();
-		expr.replace(inf + 1, sup - inf - 1, res);
+		if (inf == 0 && sup == expr.length())
+			expr.replace(0, std::string::npos, res);
+		expr.replace((inf == 0) ? inf : inf + 1, sup - inf - 1, res);
 	}
 	while ((op = expr.find_first_not_of(" 0123456789.")) != std::string::npos)
 	{
@@ -121,11 +123,13 @@ void	priority_solve(std::string&	expr)
 			res = sub(std::stof(left), std::stof(right));
 		inf = expr.find_last_of("-+", op - 1);
 		if (inf == std::string::npos)
-			inf = -1;
+			inf = 0;
 		sup = expr.find_first_of("-+*/", op + 1);
 		if (sup == std::string::npos)
 			sup = expr.length();
-		expr.replace(inf + 1, sup - inf, res);
+		if (inf == 0 && sup == expr.length())
+			expr.replace(0, std::string::npos, res);
+		expr.replace((inf == 0) ? inf : inf + 1, sup - inf - 1, res);
 	}
 }
 

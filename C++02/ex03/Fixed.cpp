@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 11:58:21 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/10 10:08:01 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/13 12:09:55 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ Fixed	Fixed::operator/(const Fixed& right)
 {
 	Fixed res;
 
-	res.setRawBits((num / right.getRawBits() * ( 1 << frac)));
+	res.setRawBits((num * ( 1 << frac) / right.getRawBits()));
 	return res;
 }
 /*==========================================================*/
