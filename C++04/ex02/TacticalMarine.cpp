@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:41:29 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/13 12:58:24 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/13 14:53:43 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ TacticalMarine::~TacticalMarine(void)
 TacticalMarine&		TacticalMarine::operator=(const TacticalMarine& src)
 {
 	this->name = src.name;
+	return *this;
 }
 
 /* ************************************************************************** */

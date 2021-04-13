@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:31:12 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/13 12:56:05 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/13 14:55:18 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class AssaultTerminator : public ISpaceMarine
 			AssaultTerminator(void);
 			AssaultTerminator(std::string _name);
 			AssaultTerminator(const AssaultTerminator& src);
-			virtual	~AssaultTerminator(void);
+			~AssaultTerminator(void);
 
 			AssaultTerminator&	operator=(const AssaultTerminator& src);
 

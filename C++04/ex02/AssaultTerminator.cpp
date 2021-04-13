@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:41:29 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/13 12:57:35 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/13 14:55:04 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ AssaultTerminator::~AssaultTerminator(void)
 AssaultTerminator&		AssaultTerminator::operator=(const AssaultTerminator& src)
 {
 	this->name = src.name;
+	return *this;
 }
 
 /* ************************************************************************** */
@@ -62,7 +63,7 @@ void	AssaultTerminator::battleCry(void) const
 
 void	AssaultTerminator::rangedAttack(void) const
 {
-	std::cout << "* does nothing*" << std::endl;
+	std::cout << "* does nothing *" << std::endl;
 }
 
 void	AssaultTerminator::meleeAttack(void) const
