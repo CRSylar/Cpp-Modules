@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:36:25 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 13:37:21 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:48:31 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,14 @@ void		Bureaucrat::decrementGrade(void)
 		this->grade++;
 	else
 		Bureaucrat::GradeTooLowException();
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "BureaucratException : Grade too High";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "BureaucratException : Grade too Low";
 }
