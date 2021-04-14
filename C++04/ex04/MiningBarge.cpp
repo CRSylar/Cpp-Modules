@@ -1,0 +1,66 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MiningBarge.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/14 10:36:14 by cromalde          #+#    #+#             */
+/*   Updated: 2021/04/14 11:04:26 by cromalde         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "MiningBarge.hpp"
+
+/* ************************************************************************** */
+	//	Constructor & Destructor
+MiningBarge::MiningBarge(void) :
+	equipped(0)
+{
+	for (int i = 0; i < 4; i++)
+		this->lasers[i] = nullptr;
+}
+
+MiningBarge::MiningBarge(const MiningBarge& src)
+{
+	for (int i = 0; i < src.equipped; i++)
+		this->lasers[i] = src.lasers[i];
+	for (int i = src.equipped; i < 4; i++)
+		this->lasers[i] = nullptr;
+	this->equipped = src.equipped;
+}
+
+MiningBarge::~MiningBarge(void)
+{
+}
+/* ************************************************************************** */
+	//	Op. Overload
+MiningBarge&	MiningBarge::operator=(const MiningBarge& src)
+{
+	if (this->equipped)
+	{
+		for (int i = 0; i < this->equipped; i++)
+			delete this->lasers[i];
+	}
+	this->equipped = 0;
+	for (int i = 0; i < src.equipped; i++)
+		this->lasers[i] = src.lasers[i];
+	for (int i = src.equipped; i < 4; i++)
+		this->lasers[i] = nullptr;
+	this->equipped = src.equipped;
+	return *this;
+}
+/* ************************************************************************** */
+	//	Member Function
+void	MiningBarge::equip(IMiningLaser *_lsr)
+{
+	if (_lsr == nullptr || this->equipped == 4)
+		return ;
+	this->lasers[this->equipped++] = _lsr;
+}
+
+void	MiningBarge::mine(IAsteroid* _ast) const
+{
+	for (int i = 0; i < this->equipped; i++)
+		this->lasers[i]->mine(_ast);
+}

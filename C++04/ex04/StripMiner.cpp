@@ -19,7 +19,7 @@ StripMiner::StripMiner(void)
 
 StripMiner::StripMiner(const StripMiner& src)
 {
-	src;
+	(void)src;
 }
 
 StripMiner::~StripMiner(void)
@@ -29,7 +29,7 @@ StripMiner::~StripMiner(void)
 	// Operation Overload
 StripMiner&	StripMiner::operator=(const StripMiner& src)
 {
-	src;
+	(void)src;
 	return *this;
 }
 
@@ -37,7 +37,7 @@ StripMiner&	StripMiner::operator=(const StripMiner& src)
 	//	Member Function
 void	StripMiner::mine(IAsteroid *_ast)
 {
-	if (_ast = nullptr)
+	if (_ast == nullptr)
 		return ;
 	std::cout << "* strip mining... got " << _ast->beMined(this) << "! *" << std::endl;
 }

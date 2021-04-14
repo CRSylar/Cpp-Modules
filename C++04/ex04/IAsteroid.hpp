@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 09:09:09 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 09:29:43 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:40:53 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <iostream>
 # include <string>
-# include "DeepCoreMiner.hpp"
-# include "StripMiner.hpp"
 class IAsteroid;
+class DeepCoreMiner;
+class StripMiner;
 
 class IAsteroid
 {

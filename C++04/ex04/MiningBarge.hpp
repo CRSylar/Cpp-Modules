@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 09:15:47 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 09:18:09 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:36:06 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,17 @@
 class MiningBarge
 {
 	public:
-		MiningBarge(/* args */);
-		~MiningBarge();
+		MiningBarge(void);
+		MiningBarge(const MiningBarge& src);
+		~MiningBarge(void);
 
+		MiningBarge&	operator=(const MiningBarge& src);
 		void equip(IMiningLaser *);
 		void mine(IAsteroid*) const;
+
 	private:
-		/* data */
+		int				equipped;
+		IMiningLaser	*lasers[4];
 };
-
-MiningBarge::MiningBarge(/* args */)
-{
-}
-
-MiningBarge::~MiningBarge()
-{
-}
-
 
 #endif
