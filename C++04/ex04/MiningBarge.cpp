@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 10:36:14 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 11:04:26 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 12:51:44 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ MiningBarge::MiningBarge(void) :
 	equipped(0)
 {
 	for (int i = 0; i < 4; i++)
-		this->lasers[i] = nullptr;
+		this->lasers[i] = 0;
 }
 
 MiningBarge::MiningBarge(const MiningBarge& src)
@@ -26,7 +26,7 @@ MiningBarge::MiningBarge(const MiningBarge& src)
 	for (int i = 0; i < src.equipped; i++)
 		this->lasers[i] = src.lasers[i];
 	for (int i = src.equipped; i < 4; i++)
-		this->lasers[i] = nullptr;
+		this->lasers[i] = 0;
 	this->equipped = src.equipped;
 }
 
@@ -46,7 +46,7 @@ MiningBarge&	MiningBarge::operator=(const MiningBarge& src)
 	for (int i = 0; i < src.equipped; i++)
 		this->lasers[i] = src.lasers[i];
 	for (int i = src.equipped; i < 4; i++)
-		this->lasers[i] = nullptr;
+		this->lasers[i] = 0;
 	this->equipped = src.equipped;
 	return *this;
 }
@@ -54,7 +54,7 @@ MiningBarge&	MiningBarge::operator=(const MiningBarge& src)
 	//	Member Function
 void	MiningBarge::equip(IMiningLaser *_lsr)
 {
-	if (_lsr == nullptr || this->equipped == 4)
+	if (_lsr == 0 || this->equipped == 4)
 		return ;
 	this->lasers[this->equipped++] = _lsr;
 }

@@ -37,7 +37,7 @@ StripMiner&	StripMiner::operator=(const StripMiner& src)
 	//	Member Function
 void	StripMiner::mine(IAsteroid *_ast)
 {
-	if (_ast == nullptr)
+	if (_ast == 0)
 		return ;
 	std::cout << "* strip mining... got " << _ast->beMined(this) << "! *" << std::endl;
 }

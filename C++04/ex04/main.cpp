@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 09:43:48 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 11:04:33 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 12:51:44 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main(void)
 	IMiningLaser *strip3 = new StripMiner();
 
 	barge.equip(strip);
-	barge.equip(nullptr);
+	barge.equip(0);
 	std::cout << "---2" << std::endl;
 	barge.mine(comet);
 	std::cout << "---2" << std::endl;
@@ -67,16 +67,16 @@ int main(void)
 	barge.mine(asteroid);
 
 	std::cout << "---0" << std::endl;
-	barge.mine(nullptr);
+	barge.mine(0);
 
 	std::cout << "---0" << std::endl;
-	deep2->mine(nullptr);
+	deep2->mine(0);
 	std::cout << "---1" << std::endl;
 	deep2->mine(comet);
 	std::cout << "---1" << std::endl;
 	deep2->mine(asteroid);
 	std::cout << "---0" << std::endl;
-	strip3->mine(nullptr);
+	strip3->mine(0);
 	std::cout << "---1" << std::endl;
 	strip3->mine(comet);
 	std::cout << "---1" << std::endl;

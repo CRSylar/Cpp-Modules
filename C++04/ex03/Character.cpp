@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 16:05:06 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/13 17:13:14 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 12:51:44 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Character::Character(const std::string& _name) :
 	name(_name), equipped(0)
 {
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = nullptr;
+		this->inventory[i] = 0;
 }
 
 Character::Character(const Character& src) :
@@ -30,7 +30,7 @@ Character::Character(const Character& src) :
 	for (int i = 0; i < src.equipped; i++)
 		this->equip(src.inventory[i]->clone());
 	for (int i = this->equipped; i < 4; i++)
-		this->inventory[i] = nullptr;
+		this->inventory[i] = 0;
 }
 
 
@@ -51,7 +51,7 @@ Character&		Character::operator=(const Character& src)
 	for (int i = 0; i < src.equipped; i++)
 		this->equip(src.inventory[i]->clone());
 	for (int i = this->equipped; i < 4; i++)
-		this->inventory[i] = nullptr;
+		this->inventory[i] = 0;
 	return *this;
 }
 /* ************************************************************************** */
@@ -63,7 +63,7 @@ std::string	const &	Character::getName(void) const
 
 void	Character::equip(AMateria* _m)
 {
-	if (this->equipped == 4 || _m == nullptr)
+	if (this->equipped == 4 || _m == 0)
 		return ;
 	for (int i = 0; i < this->equipped; i++)
 		if (this->inventory[i] == _m)
@@ -73,19 +73,19 @@ void	Character::equip(AMateria* _m)
 
 void	Character::unequip(int idx)
 {
-	if (idx < 0 || idx >= this->equipped || this->inventory[idx] == nullptr)
+	if (idx < 0 || idx >= this->equipped || this->inventory[idx] == 0)
 		return ;
 	for (int i = idx; i < 3; i++)
 	{
 		this->inventory[i] = this->inventory[i + 1];
-		this->inventory[i + 1] = nullptr;
+		this->inventory[i + 1] = 0;
 	}
 	this->equipped--;
 }
 
 void	Character::use(int idx, ICharacter& _target)
 {
-	if (idx < 0 || idx >= this->equipped || this->inventory[idx] == nullptr)
+	if (idx < 0 || idx >= this->equipped || this->inventory[idx] == 0)
 		return ;
 	this->inventory[idx]->use(_target);
 }

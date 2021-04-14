@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 14:19:58 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/13 14:57:44 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 12:51:44 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 /* ************************************************************************** */
 	//	Constructors & Destructor
 Squad::Squad (void) :
-	count(0), units(nullptr)	{}
+	count(0), units(0)	{}
 
 Squad::Squad (std::string _name) :
-	count(0), units(nullptr), name(_name)	{}
+	count(0), units(0), name(_name)	{}
 
 Squad::Squad (const Squad& src)
 {
@@ -50,7 +50,7 @@ Squad&	Squad::operator=(const Squad& src)
 		for (int j = 0; j < this->count; j++)
 			delete this->units[j];
 		delete this->units;
-		this->units = nullptr;
+		this->units = 0;
 	}
 	this->count = 0;
 
@@ -69,7 +69,7 @@ int		Squad::getCount(void) const
 ISpaceMarine*	Squad::getUnit(int _n) const
 {
 	if (this->count == 0 || _n < 0 || _n >= count)
-		return (nullptr);
+		return (0);
 	return (this->units[_n]);
 }
 

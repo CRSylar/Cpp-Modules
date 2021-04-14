@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 17:05:26 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 09:01:08 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 12:51:44 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int main(void)
 
 	ICharacter* me = new Character("me");
 
-	AMateria* tmp = nullptr;
-	AMateria* first = nullptr;
+	AMateria* tmp = 0;
+	AMateria* first = 0;
 	tmp = src->createMateria("fire");
-	//	materia fire sconosciuta, tmp->nullptr;
+	//	materia fire sconosciuta, tmp->0;
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	first = tmp;
@@ -44,7 +44,7 @@ int main(void)
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	delete tmp;
-	me->equip(nullptr);
+	me->equip(0);
 
 	ICharacter* bob = new Character("bob");
 	me->use(-1, *bob);

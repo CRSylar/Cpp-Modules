@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 11:49:40 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 11:52:14 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 12:52:09 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,34 @@ class Bureaucrat
 {
 	public:
 		Bureaucrat(void);
-		~Bureaucrat();
+		Bureaucrat(std::string _name, int _grade);
+		~Bureaucrat(void);
+
+		class GradeTooHighException : public std::exception
+		{
+
+		};
+		class GradeTooLowException : public std::exception
+		{
+
+		};
 	private:
 		std::string const	name;
 		int					grade;
 };
 
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat(std::string _name, int _grade) :
+	name(_name)
 {
+	if (_grade < 1)
+		Bureaucrat::GradeTooLowException();
+	else if (_grade > 150)
+		Bureaucrat::GradeTooHighException();
+
 }
 
-Bureaucrat::~Bureaucrat()
-{
-}
+Bureaucrat::~Bureaucrat(void)
+{}
 
 
 #endif
