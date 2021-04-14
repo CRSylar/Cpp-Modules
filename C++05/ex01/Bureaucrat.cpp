@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:36:25 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 16:01:45 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 16:47:23 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade) :
 	name(_name), grade(_grade)
 {
 	if (_grade < 1)
-		Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException();
 	else if (_grade > 150)
-		Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src) :
@@ -59,7 +59,7 @@ void		Bureaucrat::incrementGrade(void)
 	if (this->grade > 1)
 		this->grade--;
 	else
-		Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException();
 }
 
 void		Bureaucrat::decrementGrade(void)
@@ -67,7 +67,7 @@ void		Bureaucrat::decrementGrade(void)
 	if (this->grade < 150)
 		this->grade++;
 	else
-		Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 }
 
 bool		Bureaucrat::signForm(const Form& _f) const

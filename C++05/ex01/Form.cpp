@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 16:10:03 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 16:12:18 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 16:47:49 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@ Form::Form(void)
 {}
 
 Form::Form(std::string name, int sig_grade, int exec_grade) :
-	_name(name), _signed(false), _sig_grade(sig_grade), _exec_grade(exec_grade)	{}
+	_name(name), _signed(false), _sig_grade(sig_grade), _exec_grade(exec_grade)
+{
+	if (sig_grade < 1 || exec_grade < 1 || sig_grade > exec_grade)
+		throw Form::GradeTooHighException();
+	else if (sig_grade > 150 || sig_grade > 150 || sig_grade > sig_grade)
+		throw Form::GradeTooLowException();
+}
 
 Form::Form(const Form& src) :
 	_signed(src._signed), _sig_grade(src._sig_grade), _exec_grade(src._exec_grade)	{}
