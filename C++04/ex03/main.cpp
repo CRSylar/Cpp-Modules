@@ -6,13 +6,14 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 17:05:26 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/13 17:28:57 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/14 09:01:08 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Cure.hpp"
 #include "Ice.hpp"
+//	#include "Fire.hpp"
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 
@@ -21,12 +22,14 @@ int main(void)
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+//	src->learnMateria(new Fire());
 
 	ICharacter* me = new Character("me");
 
 	AMateria* tmp = nullptr;
 	AMateria* first = nullptr;
 	tmp = src->createMateria("fire");
+	//	materia fire sconosciuta, tmp->nullptr;
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	first = tmp;
@@ -45,6 +48,7 @@ int main(void)
 
 	ICharacter* bob = new Character("bob");
 	me->use(-1, *bob);
+	// indice -1, nessuna azione 	//
 	std::cout << "materia exp: " << first->getXP() << std::endl;
 	me->use(0, *bob);
 	std::cout << "materia exp: " << first->getXP() << std::endl;
