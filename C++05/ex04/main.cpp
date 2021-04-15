@@ -6,15 +6,12 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 14:36:40 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/15 12:47:12 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/15 14:38:36 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-#include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "OfficeBlock.hpp"
 
 int		main(void)
 {
@@ -149,6 +146,27 @@ int		main(void)
 		newForm = newbew.makeForm("Shrubbery Creation", "National Garden");
 		boss.signForm(*newForm);
 		boss.executeForm(*newForm);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	OfficeBlock empty;
+	OfficeBlock	NewOB(newbew, mid, senior);
+	try
+	{
+		empty.doBureaucracy("Presidential Pardon", "Penguins");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+
+	try
+	{
+		NewOB.doBureaucracy("Shrubbery Creation", "Shrubbery_Forest");
 	}
 	catch(const std::exception& e)
 	{
