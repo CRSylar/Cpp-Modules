@@ -6,39 +6,42 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 14:36:40 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/15 14:38:36 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/15 16:55:15 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sstream>
 #include "Intern.hpp"
-#include "OfficeBlock.hpp"
+#include "CentralBureaucracy.hpp"
+
+std::string		makeRandomName(int size)
+{
+	static std::string const pool = "0123456789abcdefghijklmnopqrstuvwyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	static size_t poolsize = pool.length();
+	std::stringstream ss;
+
+	for (int i = 0; i < size; i++)
+		ss << pool[rand() % poolsize];
+	return ss.str();
+}
+
 
 int		main(void)
 {
-	Bureaucrat	boss("Boss", 2);
-	Bureaucrat	junior("Junior", 100);
-	Bureaucrat	mid("Mid", 50);
-	Bureaucrat	senior("Senior", 20);
-	Bureaucrat	stager("Noob", 150);
+	srand(time(0));
+	CentralBureaucracy	cb;
+	Bureaucrat*	brctr[20];
 
-	std::cout << boss << junior << mid << senior << stager << std::endl;
+	for (int i = 0; i < 20; i++)
+		brctr[i] = new Bureaucrat(makeRandomName(15), (rand() % 150) +1);
+
 	try
 	{
-		//	Errore grado
-		Bureaucrat	err("err", 160);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << "Creating new ";
-		std::cout << e.what() << std::endl;
-	}
-
-	ShrubberyCreationForm	shf("home");
-	RobotomyRequestForm		rbtm("Cristiano");
-	PresidentialPardonForm	prpf("Target1");
-	try
-	{
-		stager.decrementGrade();
+		cb << *brctr[0] << *brctr[1];
+		cb.feed(*brctr[2]);
+		cb.feed(*brctr[3]);
+		for (int i = 4; i < 20; i++)
+			cb << *brctr[i];
 	}
 	catch(const std::exception& e)
 	{
@@ -47,131 +50,25 @@ int		main(void)
 
 	try
 	{
-		boss.incrementGrade();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	try
-	{
-		stager.signForm(shf);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	try
-	{
-		stager.signForm(shf);
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "Signing Form ";
-		std::cerr << e.what() << std::endl;
-	}
-
-	try
-	{
-		junior.signForm(shf);
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "Signing Form ";
-		std::cerr << e.what() << std::endl;
-	}
-	try
-	{
-		junior.signForm(shf);
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "Signing Form ";
-		std::cerr << e.what() << std::endl;
-	}
-
-	try
-	{
-		junior.executeForm(shf);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	try
-	{
-		mid.signForm(rbtm);
-		mid.executeForm(rbtm);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	try
-	{
-		try
-		{
-			senior.signForm(rbtm);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-
-		senior.executeForm(rbtm);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	try
-	{
-		boss.signForm(prpf);
-		boss.executeForm(prpf);
+		for (int i = 0; i < 15; i++)
+			cb.queueUp(makeRandomName(rand() % 20 + 1));
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	Intern	newbew;
 	try
 	{
-		Form* newForm;
-		newForm = newbew.makeForm("Shrubbery Creation", "National Garden");
-		boss.signForm(*newForm);
-		boss.executeForm(*newForm);
+		cb.doBureacracy();
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	OfficeBlock empty;
-	OfficeBlock	NewOB(newbew, mid, senior);
-	try
-	{
-		empty.doBureaucracy("Presidential Pardon", "Penguins");
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-
-	try
-	{
-		NewOB.doBureaucracy("Shrubbery Creation", "Shrubbery_Forest");
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	for (int i = 0; i < 20; i++)
+		delete brctr[i];
 
 	return (0);
 }
