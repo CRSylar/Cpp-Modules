@@ -6,18 +6,24 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 14:36:40 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 17:00:35 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/15 11:18:40 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int		main(void)
 {
-	Bureaucrat	boss("boss", 2);
-	Bureaucrat	empl("stupid", 150);
+	Bureaucrat	boss("Boss", 2);
+	Bureaucrat	junior("Junior", 100);
+	Bureaucrat	mid("Mid", 50);
+	Bureaucrat	senior("Senior", 20);
+	Bureaucrat	stager("Noob", 150);
 
+	std::cout << boss << junior << mid << senior << stager << std::endl;
 	try
 	{
 		//	Errore grado
@@ -25,117 +31,118 @@ int		main(void)
 	}
 	catch (std::exception& e)
 	{
+		std::cout << "Creating new ";
 		std::cout << e.what() << std::endl;
 	}
 
-		Form	f1("2c", 150, 120);
-	try
-	{
-		Form _fer("3a", 70, 40);
-		f1 = _fer;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	ShrubberyCreationForm	shf("home");
+	RobotomyRequestForm		rbtm("Cristiano");
+	PresidentialPardonForm	prpf("Target1");
+
 
 	try
 	{
-		Form	f2("wrg", 155, 1);
+		stager.decrementGrade();
 	}
-	catch (std::exception& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
-	Form	f3("2b", 2, 1);
-
-		std::cout << boss << empl << std::endl;
 	try
 	{
 		boss.incrementGrade();
 	}
-	catch (std::exception& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
 	{
-		std::cout << boss << empl << f1 << f3 << std::endl;
-		boss.incrementGrade();
+		stager.signForm(shf);
 	}
-	catch (std::exception& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
 	{
-		std::cout << boss << empl << std::endl;
-		boss.incrementGrade();
+		stager.signForm(shf);
 	}
-	catch (std::exception& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "Signing Form ";
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
 	{
-		std::cout << boss << empl << std::endl;
-		empl.decrementGrade();
+		junior.signForm(shf);
 	}
-	catch (std::exception& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "Signing Form ";
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		junior.signForm(shf);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Signing Form ";
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
 	{
-		f1.beSigned(empl);
+		junior.executeForm(shf);
 	}
-	catch (std::exception& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
 	{
-		f3.beSigned(boss);
+		mid.signForm(rbtm);
+		mid.executeForm(rbtm);
 	}
-	catch (std::exception& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
 	{
-		std::cout << boss << empl << f1 << f3 << std::endl;
-		empl.decrementGrade();
+		try
+		{
+			senior.signForm(rbtm);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+		senior.executeForm(rbtm);
 	}
-	catch (std::exception& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
 	{
-		std::cout << boss << empl << std::endl;
-		empl.decrementGrade();
+		boss.signForm(prpf);
+		boss.executeForm(prpf);
 	}
-	catch (std::exception& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
 
-	try
-	{
-		empl.incrementGrade();
-		std::cout << boss << empl << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+
 	return (0);
 }

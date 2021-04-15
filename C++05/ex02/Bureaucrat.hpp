@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 11:49:40 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 18:17:49 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/15 10:57:38 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class Bureaucrat
 		int			getGrade(void) const;
 		void		incrementGrade(void);
 		void		decrementGrade(void);
-		bool		signForm(const Form& _f) const;
+		bool		signForm(Form& _f) const;
 		bool		executeForm(const Form& _f) const;
 	private:
 		Bureaucrat(void);

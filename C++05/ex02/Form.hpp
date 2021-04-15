@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 14:59:42 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 18:20:37 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/15 11:04:43 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class Form
 		int			getMinExecGrade(void) const;
 
 		void	beSigned(const Bureaucrat& _b);
-		virtual	void	execute(const Bureaucrat& _b) = 0;
+		virtual	void	execute(const Bureaucrat& _b) const = 0;
 	private:
 		Form(void);
 		std::string	const	_name;

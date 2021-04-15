@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 16:10:03 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 18:20:46 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/15 11:06:56 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,13 @@ int				Form::getMinExecGrade(void) const
 	//	Mem. Function
 void			Form::beSigned(const Bureaucrat& _b)
 {
-	if (_b.signForm(*this) == true)
-		_signed = true;
-
+	(void)_b;
+	this->_signed = true;
 }
 
-void			Form::execute(const Bureaucrat& _b)
+void			Form::execute(const Bureaucrat& _b) const
 {
-	if (_b.executeForm(*this) == true)
-		execute(_b);
+	(void)_b;
 }
 
 const char* Form::GradeTooHighException::what() const throw()

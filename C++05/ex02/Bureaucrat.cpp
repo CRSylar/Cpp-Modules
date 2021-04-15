@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:36:25 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 18:18:44 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/15 10:59:28 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,28 +70,38 @@ void		Bureaucrat::decrementGrade(void)
 		throw Bureaucrat::GradeTooLowException();
 }
 
-bool		Bureaucrat::signForm(const Form& _f) const
+bool		Bureaucrat::signForm(Form& _f) const
 {
 	if (_f.getSignStatus() == true)
+	{
 		throw Bureaucrat::AlreadySignException();
+		return false;
+	}
 	else if (this->grade <= _f.getMinSignGrade())
 	{
 		std::cout << this->getName() << " signs " << _f.getName() << std::endl;
+		_f.beSigned(*this);
 		return true;
 	}
-	throw Bureaucrat::GradeTooHighException();
+	throw Bureaucrat::GradeTooLowException();
+	return false;
 }
 
 bool		Bureaucrat::executeForm(const Form& _f) const
 {
 	if (_f.getSignStatus() == false)
+	{
 		throw Bureaucrat::NotSignedException();
+		return false;
+	}
 	else if (this->grade <= _f.getMinExecGrade())
 	{
 		std::cout << this->getName() << " execute " << _f.getName() << std::endl;
+		_f.execute(*this);
 		return true;
 	}
 	throw Bureaucrat::ExecuteTooLowException();
+	return false;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

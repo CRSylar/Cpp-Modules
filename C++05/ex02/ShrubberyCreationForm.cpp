@@ -6,13 +6,14 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:05:09 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 18:30:34 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/15 11:05:16 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 /* ************************************************************************** */
+std::string	const ShrubberyCreationForm::name = "Shrubbery_Creation";
 
 std::string const ShrubberyCreationForm::three =
 "                     .o00o\n \
@@ -53,8 +54,9 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void	ShrubberyCreationForm::execute(const Bureaucrat& _b)
+void	ShrubberyCreationForm::execute(const Bureaucrat& _b) const
 {
+	(void)_b;
 	std::string const fdName = (this->target + "_shrubbery");
 	std::ofstream fd(fdName, std::ios::out | std::ios::app);
 
@@ -69,4 +71,14 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& _b)
 	}
 	fd << std::endl;
 	fd.close();
+}
+
+const char* ShrubberyCreationForm::FileCreationException::what() const throw()
+{
+	return "Error creating the file requested";
+}
+
+const char* ShrubberyCreationForm::FileWritingException::what() const throw()
+{
+	return "Error While writing in the file";
 }

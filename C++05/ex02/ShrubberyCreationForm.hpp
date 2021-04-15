@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 17:23:46 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/14 18:26:17 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/15 11:05:22 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ class ShrubberyCreationForm : public Form
 			virtual const char* what() const throw();
 		};
 
-		void	execute(const Bureaucrat& _b);
+		void	execute(const Bureaucrat& _b) const;
 	private:
 		ShrubberyCreationForm(void);
 
 		std::string target;
-		std::string const name = "ShrubberyCreation";
+		static std::string const name;
 		static std::string const three;
 };
 
