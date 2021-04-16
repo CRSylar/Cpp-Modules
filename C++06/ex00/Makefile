@@ -6,7 +6,7 @@
 #    By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/16 09:37:41 by cromalde          #+#    #+#              #
-#    Updated: 2021/04/16 10:09:04 by cromalde         ###   ########.fr        #
+#    Updated: 2021/04/16 11:27:30 by cromalde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 NAME	=	scalar_conversion
 
 SRC		=	./main.cpp \
+			./caster.cpp
 
 OB		=	$(SRC:.cpp=.o)
 
