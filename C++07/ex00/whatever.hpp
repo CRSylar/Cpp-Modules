@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 15:25:38 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/16 15:55:45 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/16 16:23:33 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ T&	min(T& a, T&b)
 	if (a < b)
 		return a;
 	else
-		returb b;
+		return b;
 }
 
 template <typename T>
@@ -40,7 +40,7 @@ T&	max(T& a, T&b)
 	if (a > b)
 		return a;
 	else
-		returb b;
+		return b;
 }
 
 #endif
