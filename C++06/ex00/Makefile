@@ -6,26 +6,24 @@
 #    By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/16 09:37:41 by cromalde          #+#    #+#              #
-#    Updated: 2021/04/16 11:27:30 by cromalde         ###   ########.fr        #
+#    Updated: 2021/04/16 11:30:38 by cromalde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #		Makefile	#
 
-NAME	=	scalar_conversion
+NAME	=	convert
 
-SRC		=	./main.cpp \
-			./caster.cpp
-
+SRC		=	./main.cpp ./Caster.cpp
 OB		=	$(SRC:.cpp=.o)
 
 CC		=	clang++
-CFL		=	-Wall -Wextra -Werror -std=c++98
+CFL		=	-Wall -Wextra -Werror -std=c++98 -g
 RM		=	rm -rf
 
 .PHONY:	all fclean clean re
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CFL) -c $^ -o $@
 
 all:	$(NAME)

@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 10:05:01 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/16 11:26:26 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/16 11:40:56 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,25 @@
 Caster::Caster(void)	{}
 
 Caster::Caster(std::string str) :
-	cval(0), ival(false), dval(0)
+	ival(false), dval(0), fval(true)
 {
 	try
 	{
-		dval = std::stod(str);
-		fromdouble();
+		if ((str == "-inff") || (str == "+inff") || (str == "-inf")
+					|| (str == "+inf") || (str == "nanf") || (str == "nan"))
+			fromspecial(str);
+		else
+		{
+			if (str.find('.') != std::string::npos)
+				fval = false;
+			dval = std::stod(str);
+			fromdouble();
+		}
 	}
 	catch(const std::exception& e)
 	{
 		if (str.length() == 1)
 			fromchar(str);
-		else if ((str == "-inff") || (str == "+inff") || (str == "-inf")
-					|| (str == "+inf") || (str == "nanf") || (str == "nan"))
-			fromspecial(str);
 		else
 			frominvalid();
 	}
@@ -74,9 +79,20 @@ void	Caster::fromdouble(void)
 		std::cout << "Char : " << static_cast<char>(dval) << std::endl;
 	else
 		std::cout << "Char : Non displayable" << std::endl;
-	std::cout << "Int : " << static_cast<int>(dval) << std::endl;
-	std::cout << "Float : " << static_cast<float>(dval) << "f" << std::endl;
-	std::cout << "Double : " << dval << std::endl;
+	if (ival)
+		std::cout << "Int : " << static_cast<int>(dval) << std::endl;
+	else
+		std::cout << "Int : Non displayable" << std::endl;
+	if (!fval)
+	{
+		std::cout << "Float : " << static_cast<float>(dval) << "f" << std::endl;
+		std::cout << "Double : " << dval << std::endl;
+	}
+	else
+	{
+		std::cout << "Float : " << static_cast<float>(dval) << ".0f" << std::endl;
+		std::cout << "Double : " << dval << ".0" << std::endl;
+	}
 }
 
 void	Caster::fromspecial(std::string str)

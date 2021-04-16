@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 09:50:30 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/16 11:26:04 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/16 11:38:52 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ class Caster
 		void	frominvalid(void);
 		void	fromdouble(void);
 		void	fromspecial(std::string str);
-		char	cval;
 		bool	ival;
 		double	dval;
+		bool	fval;
 };
 
 #endif
