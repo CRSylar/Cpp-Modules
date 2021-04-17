@@ -6,7 +6,7 @@
 #    By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/17 10:05:55 by cromalde          #+#    #+#              #
-#    Updated: 2021/04/17 10:08:41 by cromalde         ###   ########.fr        #
+#    Updated: 2021/04/17 11:40:34 by cromalde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME	=	array
 
-SRC		=	./main.cpp
+SRC		=	./main.cpp #./Array.cpp
 OB		=	$(SRC:.cpp=.o)
 
 CC		=	clang++
