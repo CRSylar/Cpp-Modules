@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 12:36:24 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/17 13:28:08 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/18 09:51:21 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,4 @@ int main(void)
 	{
 		std::cerr << "*NOT FOUND*" << std::endl;
 	}
-
-
 }

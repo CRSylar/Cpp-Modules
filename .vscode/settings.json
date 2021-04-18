@@ -63,7 +63,11 @@
 		"vector": "cpp",
 		"deque": "cpp",
 		"fstream": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__tree": "cpp",
+		"set": "cpp"
 	},
-	"C_Cpp.dimInactiveRegions": false
+	"C_Cpp.dimInactiveRegions": false,
+	"C_Cpp.intelliSenseCachePath": "/$HOME/goinfre/",
+	"C_Cpp.intelliSenseCacheSize": 500
 }
