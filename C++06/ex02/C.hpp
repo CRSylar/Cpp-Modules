@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 13:17:31 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/16 13:46:25 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/18 12:55:55 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class C : public Base
 {
 public:
-		virtual ~C();
+		virtual ~C() {};
 };
 
 
