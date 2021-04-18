@@ -65,7 +65,8 @@
 		"fstream": "cpp",
 		"stack": "cpp",
 		"__tree": "cpp",
-		"set": "cpp"
+		"set": "cpp",
+		"list": "cpp"
 	},
 	"C_Cpp.dimInactiveRegions": false,
 	"C_Cpp.intelliSenseCachePath": "/$HOME/goinfre/",
