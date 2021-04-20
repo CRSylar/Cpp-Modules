@@ -6,7 +6,7 @@
 #    By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/20 14:24:23 by cromalde          #+#    #+#              #
-#    Updated: 2021/04/20 21:04:52 by cromalde         ###   ########.fr        #
+#    Updated: 2021/04/20 21:38:02 by cromalde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,15 +31,15 @@ RM	=	rm -rf
 .PHONY:	all clean fclean re
 
 %.o:%.cpp
-	$(CC) $(CLF) -c $^ -o $@
+	@$(CC) $(CLF) -c $^ -o $@
 
 all:	$(NAME)
 
 $(NAME):	$(OB)
-	$(CC) $(CLF) $(OB) -o $(NAME)
+	@$(CC) $(CLF) $(OB) -o $(NAME)
 
 clean:
-	$(RM) $(OB)
+	@$(RM) $(OB)
 fclean:	clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 re: fclean all

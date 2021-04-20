@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 15:43:49 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/20 21:04:36 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:37:17 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "Tokens/Operator.hpp"
 
 void	print_stack(std::deque<int>& stack);
+int		operate(int _lft, int _rght, std::string _op);
 class Polander
 {
 	public:

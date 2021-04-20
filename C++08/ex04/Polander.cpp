@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 21:04:13 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/20 21:35:48 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/20 22:20:55 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ bool	Polander::is_valid(void)
 {
 	if (input.find_first_not_of("0123456789()+-*/ ") != std::string::npos)
 		return false;
-	if (std::count(input.begin(), input.end(), '(' - std::count(input.begin(), input.end(), ')')) != 0)
+	if (std::count(input.begin(), input.end(), '(') - std::count(input.begin(), input.end(), ')') != 0)
 		return false;
 	return true;
 }
@@ -155,7 +155,7 @@ void	Polander::do_math(void)
 	{
 		if ((*start)->getType() == 1)
 		{
-			stack.push_back(static_cast<Number*>(*start)->getValue());
+			stack.push_front(static_cast<Number*>(*start)->getValue());
 			std::cout << "I ";
 			(*start)->print();
 			std::cout << " | OP PUSH\t";
@@ -165,14 +165,14 @@ void	Polander::do_math(void)
 		{
 			if (stack.size() < 2)
 				throw Polander::InvalidExpression();
-			right = stack.back();
-			stack.pop_back();
-			left = stack.back();
-			stack.pop_back();
+			right = stack.front();
+			stack.pop_front();
+			left = stack.front();
+			stack.pop_front();
 			std::cout << "I ";
 			(*start)->print();
 			std::cout << " | OP " << static_cast<Operator*>(*start)->print_operation() << "\t";
-			stack.push_back(operate(left, right, static_cast<Operator*>(*start)->print_operation()));
+			stack.push_front(operate(left, right, static_cast<Operator*>(*start)->print_operation()));
 			::print_stack(stack);
 		}
 	}
@@ -180,20 +180,6 @@ void	Polander::do_math(void)
 		throw Polander::InvalidExpression();
 	std::cout << "Result : " << stack.back() << std::endl;
 	stack.pop_back();
-}
-
-int		operate(int left, int right, std::string str)
-{
-	if (str == "Add")
-		return (left + right);
-	else if (str == "Substract")
-		return (left - right);
-	else if (str == "Multiply")
-		return (left * right);
-	else if (right == 0)
-		throw Polander::InvalidNumber();
-	else
-		return (left / right);
 }
 
 const char* Polander::InvalidExpression::what() const throw()
@@ -216,5 +202,19 @@ void		print_stack(std::deque<int>& stack)
 	{
 		std::cout << *start << " ";
 	}
-	std::cout << "]" << std::endl;
+	std::cout << "\b]" << std::endl;
+}
+
+int		operate(int left, int right, std::string str)
+{
+	if (str == "Add")
+		return (left + right);
+	else if (str == "Substract")
+		return (left - right);
+	else if (str == "Multiply")
+		return (left * right);
+	else if (right == 0)
+		throw Polander::InvalidNumber();
+	else
+		return (left / right);
 }
