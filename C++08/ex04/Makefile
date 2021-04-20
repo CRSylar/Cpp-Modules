@@ -6,7 +6,7 @@
 #    By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/20 14:24:23 by cromalde          #+#    #+#              #
-#    Updated: 2021/04/20 17:19:20 by cromalde         ###   ########.fr        #
+#    Updated: 2021/04/20 21:04:52 by cromalde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME	=	Polander
 
 SRC		=	./main.cpp \
 				./Token.cpp \
+				./Polander.cpp \
 				./Tokens/Number.cpp \
 				./Tokens/Closedbra.cpp \
 				./Tokens/Openbra.cpp \

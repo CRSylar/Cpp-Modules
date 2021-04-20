@@ -24,8 +24,9 @@ class Operator : public Token
 
 		Operator&	operator=(const Operator& src);
 
-		int		getType(void) const;
-		void	print(void) const;
+		int			getType(void) const;
+		void			print(void) const;
+		std::string		print_operation(void) const;
 	private:
 		Operator(void);
 

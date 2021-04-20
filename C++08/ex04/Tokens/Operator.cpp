@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 16:43:19 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/20 16:43:31 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:21:00 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,16 @@ int		Operator::getType(void) const
 void	Operator::print(void) const
 {
 	std::cout << "Op(" << value << ")";
+}
+
+std::string	Operator::print_operation(void) const
+{
+	if (value == '+')
+		return "Add";
+	else if (value == '-')
+		return "Substract";
+	else if (value == '*')
+		return "Multiply";
+	else
+		return "Divide";
 }
