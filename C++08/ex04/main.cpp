@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 14:27:59 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/20 15:05:58 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/20 17:08:27 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ int	main(int ac, char **av)
 		std::cout << "Error \nUsage:	./Polander  \"some expression\" " << std::endl;
 		return 1;
 	}
-	Polander	expr(av[1]);
+	try
+	{
+		Polander	expr(av[1]);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 	return 0;
 }

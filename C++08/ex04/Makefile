@@ -6,7 +6,7 @@
 #    By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/20 14:24:23 by cromalde          #+#    #+#              #
-#    Updated: 2021/04/20 14:27:49 by cromalde         ###   ########.fr        #
+#    Updated: 2021/04/20 17:19:20 by cromalde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,17 @@
 
 NAME	=	Polander
 
-SRC		=	./main.cpp
+SRC		=	./main.cpp \
+				./Token.cpp \
+				./Tokens/Number.cpp \
+				./Tokens/Closedbra.cpp \
+				./Tokens/Openbra.cpp \
+				./Tokens/Operator.cpp
+
 OB	=	$(SRC:.cpp=.o)
 
 CC	=	clang++
-CLF	=	-Wall -Wextra -Werror -std=c++98
+CLF	=	-Wall -Wextra -Werror -std=c++98 -g
 
 RM	=	rm -rf
 .PHONY:	all clean fclean re
