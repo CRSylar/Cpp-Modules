@@ -6,7 +6,7 @@
 /*   By: cromalde <cromalde@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 16:22:42 by cromalde          #+#    #+#             */
-/*   Updated: 2021/04/20 16:32:13 by cromalde         ###   ########.fr       */
+/*   Updated: 2021/04/20 16:43:02 by cromalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,36 +32,5 @@ class Number : public Token
 
 		int		value;
 };
-
-Number::Number(void)	{}
-
-Number::Number(int _n) :
-	value(_n)	{}
-
-Number::Number(const Number& src) :
-	value(src.value)	{}
-
-Number::~Number()	{}
-
-Number&	Number::operator=(const Number& src)
-{
-	value = src.value;
-	return *this;
-}
-
-int		Number::getValue(void) const
-{
-	return value;
-}
-
-int		Number::getType(void) const
-{
-	return 1;
-}
-
-void	Number::print(void) const
-{
-	std::cout << "Num(" << value << ")";
-}
 
 #endif
